@@ -1,0 +1,133 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+class customer {
+public:
+    string customername;
+    string carmodel;
+    string carnumber;
+    char data;
+};
+
+class rent : public customer {
+public:
+    int days = 0, rentalfee = 0;
+
+    void data() {
+        cout << "Please Enter your Name: ";
+        cin >> customername;
+        cout << endl;
+
+        do {
+            cout << "Please Select a Car" << endl;
+            cout << "\tChoose which segment of car you want" << endl;
+            cout << "\t\t\t\tEnter 'A' for sedan type car." << endl;
+            cout << "\t\t\t\tEnter 'B' for XUV type car." << endl;
+            cout << "\t\t\t\tEnter 'C' for MPV type car." << endl;
+            cout << "\t\t\t\tEnter 'D' for hatchback type car." << endl;
+            cout << "\t\t\t\tEnter 'E' for MicroSUV type car." << endl;
+            cout << "\t\t\t\tEnter 'F' for Traveller type car." << endl;
+            cout << "\nChoose a Car from the above options: ";
+            cin >> carmodel;
+            cout << endl;
+
+            cout << "--------------------------------------------------------------------------" << endl;
+
+            if (carmodel == "A") {
+                cout << "You have chosen sedan type car" << endl;
+                cout << "Car Name: Hyundai Verna" << endl;
+                cout << "Car Number: AP27BF1599" << endl;
+                cout << "Mileage: 18KMPL" << endl;
+                cout << "Price per day: 800" << endl;
+                cout << "Number of seats: 5" << endl;
+            } else if (carmodel == "B") {
+                cout << "You have chosen XUV type car" << endl;
+                cout << "Car Name: Scorpio" << endl;
+                cout << "Car Number: AP27TV7899" << endl;
+                cout << "Mileage: 10KMPL" << endl;
+                cout << "Price per day: 1000" << endl;
+                cout << "Number of seats: 8" << endl;
+            } else if (carmodel == "C") {
+                cout << "You have chosen MPV type car" << endl;
+                cout << "Car Name: Innova Crysta" << endl;
+                cout << "Car Number: AP27TV4277" << endl;
+                cout << "Mileage: 13KMPL" << endl;
+                cout << "Price per day: 1500" << endl;
+                cout << "Number of seats: 7" << endl;
+            } else if (carmodel == "D") {
+                cout << "You have chosen hatchback type car" << endl;
+                cout << "Car Name: Hyundai i20" << endl;
+                cout << "Car Number: AP27TV9299" << endl;
+                cout << "Mileage: 24KMPL" << endl;
+                cout << "Price per day: 700" << endl;
+                cout << "Number of seats: 5" << endl;
+            } else if (carmodel == "E") {
+                cout << "You have chosen Micro SUV type car" << endl;
+                cout << "Car Name: Venue" << endl;
+                cout << "Car Number: AP27HK2739" << endl;
+                cout << "Mileage: 16KMPL" << endl;
+                cout << "Price per day: 600" << endl;
+                cout << "Number of seats: 5" << endl;
+            } else if (carmodel == "F") {
+                cout << "You have chosen Traveller type car" << endl;
+                cout << "Car Name: Tempo" << endl;
+                cout << "Car Number: AP27TV7777" << endl;
+                cout << "Mileage: 5KMPL" << endl;
+                cout << "Price per day: 2000" << endl;
+                cout << "Number of seats: 12" << endl;
+            } else {
+                cout << "Invalid Car Model. Please try again!" << endl;
+            }
+
+        } while (carmodel != "A" && carmodel != "B" && carmodel != "C" && carmodel != "D" && carmodel != "E" && carmodel != "F");
+
+        cout << "--------------------------------------------------------------------------" << endl;
+        cout << "Please provide the following information: " << endl;
+        cout << "Car Number: ";
+        cin >> carnumber;
+        cout << "Number of days you wish to rent the car: ";
+        cin >> days;
+        cout << endl;
+    }
+
+    void calculate() {
+        cout << "Calculating rent..." << endl;
+        // Simulate waiting (replace this comment with actual delays in a real system)
+        if (carmodel == "A")
+            rentalfee = days * 800;
+        else if (carmodel == "B")
+            rentalfee = days * 1000;
+        else if (carmodel == "C")
+            rentalfee = days * 1500;
+        else if (carmodel == "D")
+            rentalfee = days * 700;
+        else if (carmodel == "E")
+            rentalfee = days * 600;
+        else if (carmodel == "F")
+            rentalfee = days * 2000;
+    }
+
+    void showrent() {
+        cout << "\n\t\t                       Car Rental - Customer Invoice                  " << endl;
+        cout << "\t\t    ///////////////////////////////////////////////////////////" << endl;
+        cout << "\t\t    | Invoice No.: " << setw(22) << "#Cnb81353" << " |" << endl;
+        cout << "\t\t    | Customer Name: " << setw(18) << customername << " |" << endl;
+        cout << "\t\t    | Car No.: " << setw(26) << carnumber << " |" << endl;
+        cout << "\t\t    | Number of days: " << setw(20) << days << " |" << endl;
+        cout << "\t\t    | Your Rental Amount is: " << setw(12) << rentalfee << " |" << endl;
+        cout << "\t\t    ///////////////////////////////////////////////////////////" << endl;
+        cout << "\t\t    Thank you and visit again!" << endl;
+        cout << "\t\t    Have a nice day!" << endl;
+    }
+};
+
+int main() {
+    rent obj2;
+    obj2.data();
+    obj2.calculate();
+    obj2.showrent();
+    return 0;
+}
